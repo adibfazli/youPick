@@ -5,11 +5,14 @@ var cookieParser   = require('cookie-parser');
 // express-session (it is for keeping the ID in a coockie so
 // they can stay logedin) passport uses the express-session
 var session        = require('express-session');
+
 // passport uses express-session 
  //to keep track of the logedin user
 var passport       = require('passport');
 
 var logger         = require('morgan');
+
+var methodOverride = require('method-override');
 
 var indexRouter    = require('./routes/index');
 var profileRouter  = require('./routes/profile');
@@ -41,6 +44,7 @@ app.use(session({
  app.use(passport.initialize());
  app.use(passport.session());
 
+ app.use(methodOverride('_method'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
