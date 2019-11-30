@@ -2,11 +2,11 @@ var createError    = require('http-errors');
 var express        = require('express');
 var path           = require('path');
 var cookieParser   = require('cookie-parser');
-                    // express-session (it is for keeping the ID in a coockie so
-                    // they can stay logedin) passport uses the express-session
+// express-session (it is for keeping the ID in a coockie so
+// they can stay logedin) passport uses the express-session
 var session        = require('express-session');
-                    // passport uses express-session 
-                    //to keep track of the logedin user
+// passport uses express-session 
+ //to keep track of the logedin user
 var passport       = require('passport');
 
 var logger         = require('morgan');
@@ -16,9 +16,12 @@ var profileRouter  = require('./routes/profile');
 var globalRouter   = require('./routes/global');
 
 var app = express();
+
+//this will connect to the .env file, and will provide access to it
+require('dotenv').config();
 require('./config/database');
  // 
- require('./config/passport');
+require('./config/passport');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
