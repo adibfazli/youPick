@@ -5,5 +5,5 @@ module.exports = {
 }
 
 function show( req , res){
-    res.render('/global')
+    res.render('global/show')
 }

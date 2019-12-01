@@ -1,10 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var userCtrl = require('../controller/users')
+var ProfileCtrl = require('../controller/profile')
 
 /* GET users listing. */
-router.get('/', function(req, res) {
-  res.send('respond with a resource');
-});
+router.get('/profile', ProfileCtrl.show);
 
 module.exports = router;
