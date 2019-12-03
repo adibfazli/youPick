@@ -9,14 +9,16 @@ router.get('/', function(req, res, next) {
 
 router.get('/auth/google' , passport.authenticate(
   'google' , 
-  { scope : ['profile' , 'email'] }
+  { 
+    scope : ['profile' , 'email']
+  }
 ));
 
 router.get('/oauth2callback' , passport.authenticate(
   'google',
   {
-    successRedirect: '/index',
-    failureRedirect: '/index'
+    successRedirect: '/global',
+    failureRedirect: '/global'
   }
 ));
 

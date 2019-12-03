@@ -16,23 +16,25 @@ passport.use(new GoogleStrategy({
             //we have a brand new student via Oauth
             var newUser = new User({
                 name: profile.displayName,
-                email: profile.emails[0].valaue,
-                googleId: profile.id
+                email: profile.emails[0].value,
+                avatar: profile.photos[0].value,
+                googleId: profile.id,
             });
+            console.log(profile.photos[0].value)
             newUser.save(function (err) {
                 if (err) return cb(err)
                 return cb(null, newUser)
             });
         }
     });
-    console.log(profile);
+    // console.log(profile);
 }));
 
 passport.serializeUser(function(user , done){
-    done(null , user._id);
+    done(null , user.id);
 });
 
-passport.deserializeUser(function(_id , done){
+passport.deserializeUser(function( id , done){
     User.findById(id , function(err , user){
         done(err , user);
     });

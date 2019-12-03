@@ -6,12 +6,18 @@ var userPosts = new Schema({
   
 });
 
+var userlikes = new Schema({
+  
+});
+
+
 var userSchema = new Schema({
     name: String,
     email: String,
     avatar: String,
     googleId: String,
-    posts : [userPosts]
+    image : [userPosts],
+    comment: String,
   }, {
     timestamps: true
   });

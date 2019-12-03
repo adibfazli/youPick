@@ -1,40 +1,39 @@
 #logo{
   width: 35%;
   /* margin-top: -3%; */
-  margin-top: 4%;
+  margin-top: 7%;
+  z-index: 10;
 }
 #logIn{
   width: 35%;
+  margin-top: -7%;
+
 }
 #title a {
   padding: 0;
   width: 35%;
 }
-#title span {
-  /* background: -webkit-linear-gradient(#A345B2 , #DB44A0 , #EC5B43); */
-  background: -webkit-linear-gradient(white,white);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-#title h1 {
-  /* margin-top: -6%; */
-  margin-top: -7%;
-  margin-bottom:5%;
-  background: -webkit-linear-gradient(white,white);
-  text-shadow: 10px 10px 10px;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding:0 1% 0.4% 1%;
+.span1{
+  /* position: absolute; */
+  font-size: 70px;
+  /* left: -18%; */
+  top: 13%;
+  font-family: 'Raleway Dots', cursive;
+  /* transform: rotate(-90deg); */
+  color: #f6cbd2;
+z-index: -1;
 }
 .logInDiv{
-  margin-top: 2%;
+  position: relative;
+  margin-top: -5%;
   background: rgba(0, 0, 0, 0.294);
   border: dotted rgb(0, 0, 0) 2px;
-  border-top-left-radius: 50px;
+  border-radius: 20px;
+  /* border-top-left-radius: 50px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 20px;
-  height: 20%;
+  border-bottom-left-radius: 20px; */
+  height: 230px;
 }
 
 

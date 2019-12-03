@@ -1,12 +1,19 @@
 var User = require('../models/user');
 
 module.exports = {
-  show ,
+  index ,
+  add ,
 }
 
-function show(req, res) {
-  res.render('profiles/show')
+function index(req, res) {
+  // console.log(req.user)
+    res.render('profiles/show' , {user : req.user})
 }
+function add(req , res){
+  res.render('profiles/add')
+}
+
+
 
 
 // function index(req, res, next) {

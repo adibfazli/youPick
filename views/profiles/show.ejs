@@ -4,10 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/global.css'/>
     <link rel='stylesheet' href='/stylesheets/profile.css'/>
     <title>Document</title>
 </head>
 <body>
-    <h1>hi profile</h1>
+    <div class="profileNav">
+        <div class="profileAvatar" style="background-image: url('<%= user.avatar %>');"></div>
+        <h1 class="profileName"><%= user.name %></h1>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+        <div class="post">
+        
+        <div class="pic">
+            
+        </div>
+        <div class="like">
+            
+            <div class="heart">
+                <h1>&hearts;</h1>
+            </div>
+        </div>
+        <div class="commentDiv">
+            <input type="text" class="comment">
+            <button type="submit">&#10095;</button>
+        </div>
+        <select name="" id="commentDrop">
+            
+        </select>
+    </div> -->
+
 </body>
 </html>

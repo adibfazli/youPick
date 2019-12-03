@@ -8,6 +8,41 @@
     <title>Document</title>
 </head>
 <body>
+    <nav class="global-nav">
+        <div class="global-logedIn-user-avatar" style="background-image: url('<%= logedInUser.avatar %>');"></div>
+        <a href="/profile"><button class="profileBtn" ></button></a>
+        <a href="/profile/add"><button class="addPhoto" ></button></a>
+        <!-- <a href="/profile"><button class="profileBtn" ></button></a> -->
+    </nav>
+    
     <h1>global</h1>
+    
+    
+    <% users.forEach(e => { %>
+        <div class="post">
+                <a href="/users/<%= e._id %>"><div class="global-profile-pic" style="background-image: url('<%= e.avatar %>');"></div></a>
+                <a href="/users/<%= e._id %>"><p><%= e.name %></p></a>
+        
+        <div class="pic">
+            
+        </div>
+        <div class="like">
+            
+            <div class="heart">
+                <h1>&hearts;</h1>
+            </div>
+        </div>
+        <div class="commentDiv">
+            <input type="text" class="comment">
+            <button type="submit">&#10095;</button>
+        </div>
+        <select name="" id="commentDrop">
+            
+        </select>
+    </div>
+    
+    
+    <% }) %>
+    
 </body>
 </html>

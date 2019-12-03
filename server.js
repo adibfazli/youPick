@@ -17,6 +17,7 @@ var methodOverride = require('method-override');
 var indexRouter    = require('./routes/index');
 var profileRouter  = require('./routes/profile');
 var globalRouter   = require('./routes/global');
+var usersRouter    = require('./routes/users');
 
 var app = express();
 
@@ -41,12 +42,14 @@ app.use(session({
   saveUninitialized: true
 }));
  // app.use(session({... code above
+ app.use(passport.initialize());
+ app.use(passport.session());
  app.use('/', indexRouter);
  app.use('/', profileRouter);
  app.use('/', globalRouter);
- app.use(passport.initialize());
- app.use(passport.session());
+ app.use('/users', usersRouter);
 
+ 
  app.use(methodOverride('_method'));
 
 app.use(express.static(path.join(__dirname, 'public')));

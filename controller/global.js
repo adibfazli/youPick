@@ -5,5 +5,11 @@ module.exports = {
 }
 
 function show( req , res){
-    res.render('global/show')
+    User.find({} ,function(err ,users){
+        // console.log(user, req.user);
+        res.render('global/show' ,{
+            users ,
+             logedInUser :req.user
+        })
+    });
 }

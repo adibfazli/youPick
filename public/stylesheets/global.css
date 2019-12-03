@@ -1,0 +1,171 @@
+body{
+    position: s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.global-nav{
+    width: 100%;
+}
+.post{
+    position: relative;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    border: solid rgba(0, 58, 120, 0.42) 2px;
+    width: 42%;
+    height: 650px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 40px;
+    box-shadow: 5px 5px 10px   rgb(199, 199, 199);
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+}
+.post p{
+    width: 200px;
+    display: inline-block;
+}
+/* .avatar{
+    position: absolute;
+    left: 2.5%;
+    top: -1%;
+} */
+.pic{
+    margin-top: -1.3%;
+    width: 100%;
+    height: 500px;
+    border: solid rgba(0, 58, 120, 0.42) 1px;
+}
+.like{
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    border: solid rgba(0, 58, 120, 0.42) 2px;
+    /* border-radius: 50px; */
+    border-top-left-radius: 0px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 48px;
+    width: 25%;
+    height: 11.5%;
+    background: radial-gradient(ellipse at bottom, #2f6aad 0%,#090a0f 100%);
+    /* box-shadow: 5px 5px 10px   rgb(199, 199, 199); */
+}
+.heart{
+    border: solid rgba(0, 58, 120, 0.42) 1px;
+    /* border-radius: 50px; */
+    border-top-left-radius: 0px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 46px;
+    width: 50%;
+    height: 97%;
+    background-color: white;
+    text-align: center;
+    font-size: 15px;
+}
+.commentDiv{
+    border: solid rgba(0, 58, 120, 0.42)  1px;
+    position: relative;
+    margin-left: 29%;
+    margin-top: 1%;
+    /* bottom: 6%;
+    right: 6%; */
+    width:65% ;
+    border-radius: 6px;
+}
+.commentDiv button{
+    border: solid rgb(0, 58, 120)  1px;
+    position: absolute;
+    right: 0;
+    outline: none;
+    width: 6%;
+    height: 100%;
+    border-radius:4px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    background: radial-gradient(ellipse at left,#2f6aad 0%,#090a0f 100%);
+    font-size: 115%;
+    color: white;
+    cursor: pointer;
+}
+.comment{
+    width:92.6% ;
+    border: none;
+    border-radius: 7px;
+    font-size: 20px;
+    outline: none;
+}
+#commentDrop{
+    margin-left: 29%;
+    margin-top: 1%;
+    outline: none;
+    right:6% ;
+    bottom: 2%;
+    width:65% ;
+    border:none;
+    font-size: 20px;
+    cursor: pointer;
+    /* background-color: rgb(240, 240, 240); */
+
+}
+.profileBtn{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/profile.png');
+    background-position: 4px 1px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    /* border: solid black 1px; */
+    border-radius: 50%;
+    box-shadow: gray 3px 3px 3px;
+    cursor: pointer;
+    top: 3%;
+    left: 8%;
+    outline: none;
+}
+.addPhoto{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/add.png');
+    background-position: 3px 3px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    box-shadow: gray 3px 3px 3px;
+    cursor: pointer;
+    top: 11%;
+    left: 6%;
+    outline: none;
+}
+.global-logedIn-user-avatar{
+    left: 1%;
+    top: 1%;
+    position: absolute;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    border-bottom: solid black 1px;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 5%;
+    border-top-right-radius: 5%;
+    border-top-left-radius: 5%;
+    background-size: 100px;
+}
+
+.global-profile-pic{
+    display: inline-block;
+    margin-left: 1%;
+    margin-top: 1%;
+
+    width: 50px;
+    height: 50px;
+    border-bottom: solid black 1px;
+    border-radius: 50%;
+    background-size: 50px;
+}
