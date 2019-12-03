@@ -1,22 +1,23 @@
 var mongoose = require('mongoose')
 
 var Schema = mongoose.Schema
-
+//---------------------------------------
+var likesAndComments = new Schema({
+  like: Boolean,
+  comment: String
+});
+//---------------------------------------
 var userPosts = new Schema({
-  
+  image: String,
+  subPosts:[likesAndComments],
 });
-
-var userlikes = new Schema({
-  
-});
-
-
+//---------------------------------------
 var userSchema = new Schema({
     name: String,
     email: String,
     avatar: String,
     googleId: String,
-    image : [userPosts],
+    posts : [userPosts],
     comment: String,
   }, {
     timestamps: true
