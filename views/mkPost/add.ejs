@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hi add</h1>
+    <form action="/post" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <textarea type="text" name="caption"></textarea>
+        <button type="submit">add post</button>
+    </form>
 </body>
 </html>
+
+

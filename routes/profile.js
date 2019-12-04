@@ -6,6 +6,6 @@ var ProfileCtrl = require('../controller/profile')
 
 /* GET users listing. */
 router.get('/profile', ProfileCtrl.index);
-router.get('/profile/add' , ProfileCtrl.add)
+
 
 module.exports = router;

@@ -61,10 +61,22 @@ body{
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 46px;
     width: 50%;
-    height: 97%;
+    height: 72.5px;
     background-color: white;
     text-align: center;
     font-size: 15px;
+}
+.likeBtn{
+    background-color: transparent;
+    margin-left: -20px;
+    margin-top: 8px;
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/heart.png');
+    background-size: 50px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position:10px ;
 }
 .commentDiv{
     border: solid rgba(0, 58, 120, 0.42)  1px;

@@ -1,17 +1,19 @@
 var User = require('../models/user');
+var Post = require('../models/post');
 
 module.exports = {
   index ,
-  add ,
 }
 
 function index(req, res) {
   // console.log(req.user)
-    res.render('profiles/show' , {user : req.user})
+    res.render('profiles/show' , {
+      user : req.user ,
+      Post
+    }
+    )
 }
-function add(req , res){
-  res.render('profiles/add')
-}
+
 
 
 
