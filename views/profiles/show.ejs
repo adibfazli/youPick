@@ -12,38 +12,58 @@
     <div class="profileNav">
         <div class="profileAvatar" style="background-image: url('<%= user.avatar %>');"></div>
         <h1 class="profileName"><%= user.name %></h1>
-
     </div>
 
 
 
-
-
-
-
-
-
-
-<!-- 
-        <div class="post">
+    <% user.posts.forEach(e => { %>
         
-        <div class="pic">
-            
-        </div>
-        <div class="like">
-            
-            <div class="heart">
-                <h1>&hearts;</h1>
+        <div class="post">
+            <a href="/users/<%= user._id %>">
+                <div class="global-profile-pic" style="background-image: url('<%= user.avatar %>');"></div>
+            </a>
+            <a href="/users/<%= user._id %>">
+                <p><%= user.name %></p>
+            </a>
+            <!-- Delete -->
+            <form action="/deletePost/<%=e._id%>?_method=DELETE" method="POST">
+                <button class="deleteBtn" type="submit">X</button>
+            </form>
+            <!-- posted image -->
+            <div class="pic"><img src="<%= e.url %>" /></div>
+            <!-- like -->
+            <div class="like">
+                    <p><%= e.likes.length %></p>
+                <form action="/likePost/<%=e._id%>?_method=PUT" method="POST">
+                    <div class="heart"><button type="submit" class="likeBtn"></button></div>
+                </form>
             </div>
-        </div>
-        <div class="commentDiv">
-            <input type="text" class="comment">
-            <button type="submit">&#10095;</button>
-        </div>
-        <select name="" id="commentDrop">
+            <!-- comment -->
+            <div class="commentDiv">
+                <form id="commentForm" action="/addComment/<%= e._id %>?_method=PUT" method="POST">
+                    <input type="text" name="comment" class="comment">
+                    <button type="submit">&#10095;</button>
+                </form>
+            </div>
+    
+            <!-- <select name="" id="commentDrop">
+               
+            </select> -->
+            <div id="commentDrop">
+                    <%e.comments.forEach(c => {%>
+                        <p><form action="/deleteComment/<%= e._id%>/<%=c._id%>?_method=PUT" method="POST"><button type="submit">X</button></form>&nbsp;<h6><%=c.user%></h6>:&nbsp;<%=c.comment%></p>
+                    <%})%>
+            </div>
             
-        </select>
-    </div> -->
+        </div>
+        <% }) %>
+
+
+
+
+
+
+
 
 </body>
 </html>

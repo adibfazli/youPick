@@ -22,6 +22,7 @@ function show(req, res) {
     // });
     Post.find({}).populate('user').exec(
         (err, posts) => {
+            console.log("******* controller posts :",posts)
             res.render('global/show', {
                 posts,
                 logedInUser: req.user,

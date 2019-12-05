@@ -19,5 +19,8 @@ router.post('/post', parser.single("image"), postCtrl.create );
 router.delete('/deletePost/:id', postCtrl.delete);
 router.get('/mkPost/add', postCtrl.index);
 router.put('/likePost/:id', postCtrl.likePost);
+router.put('/addComment/:id', postCtrl.addComment);
+router.put('/deleteComment/:p_id/:c_id', postCtrl.deleteComment);
+
 
 module.exports = router;

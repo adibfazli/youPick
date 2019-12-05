@@ -14,45 +14,52 @@
         <div class="global-logedIn-user-avatar" style="background-image: url('<%= logedInUser.avatar %>');"></div>
         <a href="/profile"><button class="profileBtn"></button></a>
         <a href="/mkPost/add"><button class="addPhoto"></button></a>
-        <!-- <a href="/profile"><button class="profileBtn" ></button></a> -->
+        <a href="/logout"><button class="logout">Logout</button></a>
     </nav>
 
     <h1>global</h1>
     <% posts.forEach(e => { %>
-    <div class="post">
-        <a href="/users/<%= e._id %>">
-            <div class="global-profile-pic" style="background-image: url('<%= e.avatar %>');"></div>
-        </a>
-        <a href="/users/<%= e._id %>">
-            <p><%= e.user.name %></p>
-        </a>
-        <!-- Delete -->
-        <form action="/deletePost/<%=e._id%>?_method=DELETE" method="POST">
-            <button type="submit">DELETE POST</button>
-        </form>
-        <!-- posted image -->
-        <div class="pic"><img src="<%= e.url %>" /></div>
-        <!-- like -->
-        <div class="like">
-            <form action="/likePost/<%=e._id%>?_method=PUT" method="POST">
-                <div class="heart"><button type="submit" class="likeBtn"></button></div>
+        
+        <div class="post">
+            <a href="/users/<%= e.user._id %>">
+                <div class="global-profile-pic" style="background-image: url('<%= e.user.avatar %>');"></div></a>
+            <a class="userName" href="/users/<%= e.user._id %>">
+                <p><%= e.user.name %></p>
+            </a>
+            <!-- Delete -->
+            
+            <form action="/deletePost/<%=e._id%>?_method=DELETE" method="POST">
+                <button class="deleteBtn" type="submit">X</button>
             </form>
+            <!-- posted image -->
+            <div class="pic"><img src="<%= e.url %>" /></div>
+            <!-- like -->
+            <div class="like">
+                    <p><%= e.likes.length %></p>
+                <form action="/likePost/<%=e._id%>?_method=PUT" method="POST">
+                    <div class="heart"><button type="submit" class="likeBtn"></button></div>
+                </form>
+            </div>
+            <!-- comment -->
+            <div class="commentDiv">
+                <form id="commentForm" action="/addComment/<%= e._id %>?_method=PUT" method="POST">
+                    <input type="text" name="comment" class="comment">
+                    <button type="submit">&#10095;</button>
+                </form>
+            </div>
+    
+            <!-- <select name="" id="commentDrop">
+               
+            </select> -->
+            <div id="commentDrop">
+                    <%e.comments.forEach(c => {%>
+                        <p><form action="/deleteComment/<%= e._id%>/<%=c._id%>?_method=PUT" method="POST"><button type="submit">X</button></form>&nbsp;<h6><%=c.user%></h6>:&nbsp;<%=c.comment%></p>
+                    <%})%>
+            </div>
+            
         </div>
-        <!-- comment -->
-        <div class="commentDiv">
-            <form id="commentForm" action="/comment/<%= e._id %>" method="POST">
-                <input type="text" name="comment" class="comment">
-                <button type="submit">&#10095;</button>
-            </form>
-        </div>
-
-        <select name="" id="commentDrop">
-
-        </select>
-
-    </div>
-    <form action=""></form>
-    <% }) %>
+        <form action=""></form>
+        <% }) %>
 </body>
 
 </html>

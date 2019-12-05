@@ -23,7 +23,7 @@ var postSchema = new Schema({
   likes: [],
   comments: [{
     user: String,
-    comment: String
+    comment: String,
   }],
   user: {
     type: Schema.Types.ObjectId,

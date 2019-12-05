@@ -10,12 +10,38 @@ module.exports = {
     new: newPost,
     edit,
     delete: deletePost,
-    likePost
+    likePost,
+    addComment,
+    deleteComment
+}
+
+function deleteComment (req, res) {
+    Post.findById(req.params.p_id, function(err, post){
+        post.comments.id(req.params.c_id).remove();
+
+        post.save().then(function(){
+            res.json({success: true});
+        }).catch(err => {res.status.json({ err: err }); });
+        res.redirect('/global');
+    })
+}
+
+function addComment(req, res) {
+    Post.findById(req.params.id, function(err, post) {
+        let commentObj = {};
+
+        commentObj.comment = req.body.comment;
+        commentObj.user = req.user.name;
+
+        post.comments.push(commentObj);
+        post.save();
+        res.redirect('/global');
+    })
 }
 
 function likePost(req, res) {
     Post.findOne({_id: req.params.id}, function(err, post) {
-        console.log("post", post)
+        
         if (!post.likes.includes(req.user.id)) {
             post.likes.push(req.user.id);
             post.save(function(err){
@@ -27,7 +53,7 @@ function likePost(req, res) {
                 i != req.param.id;
             });
             post.likes = likes;
-            post.save(function(err) {
+            post.save(function(err, post) {
                 res.redirect('/global');
             })
         }
@@ -48,10 +74,7 @@ function create(req, res) {
     post.caption = req.body.caption;
     post.user = req.user;
     Post.create(post, function(err, pst) {
-        console.log( "***** pst : ",pst)
         pst.populate("userId", function(err, i){
-            console.log( "***2** pst : ",pst)
-            console.log( "***** I : ",i)
             req.user.posts.push(pst);
             req.user.save(function(err){
                 res.redirect('/global');
@@ -70,8 +93,25 @@ function edit(req, res) {
 }
 
 function deletePost(req, res) {
-    Post.findByIdAndDelete({_id: req.params.id}, function(err, post){
-        res.redirect('/global');
-    });
+    User.findById(req.user.id).populate('posts').exec(
+        
+        function(err, user) {
+            let posts = user.posts;
+            user.posts = user.posts.filter(i => {
+                if (i._id.toString() != req.params.id) {
+                    return i;
+                }
+            })
+            
+            // user.posts = posts;
+            user.save();
+            Post.findById(req.params.id, function(err, post){
+                if (post.user._id == req.user.id) {
+                    post.remove();
+                }
+                res.redirect('/global');
+            });
+        }
+    )
 }
 
