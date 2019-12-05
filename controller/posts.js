@@ -1,7 +1,6 @@
 var User = require('../models/user');
 var Post = require('../models/post');
 var multer = require('multer')
-// var upload = multer({dest: 'uploads/'});
 
 module.exports = {
     index,
@@ -41,7 +40,6 @@ function addComment(req, res) {
 
 function likePost(req, res) {
     Post.findOne({_id: req.params.id}, function(err, post) {
-        
         if (!post.likes.includes(req.user.id)) {
             post.likes.push(req.user.id);
             post.save(function(err){
@@ -101,9 +99,7 @@ function deletePost(req, res) {
                 if (i._id.toString() != req.params.id) {
                     return i;
                 }
-            })
-            
-            // user.posts = posts;
+            });
             user.save();
             Post.findById(req.params.id, function(err, post){
                 if (post.user._id == req.user.id) {

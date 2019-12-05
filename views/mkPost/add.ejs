@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/profile.css'/>
     <title>Document</title>
 </head>
-<body>
+<body class="addImgBody">
     <form action="/post" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image">
-        <textarea type="text" name="caption"></textarea>
-        <button type="submit">add post</button>
+        <div class="addImgDiv">
+            <input type="file" name="image">
+            <textarea type="text" name="caption"></textarea>
+            <button type="submit">add post</button>
+
+        </div>
     </form>
 </body>
 </html>
