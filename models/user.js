@@ -5,6 +5,7 @@ var Schema = mongoose.Schema
 //---------------------------------------
 var userSchema = new Schema({
     name: String,
+    bio: String,
     email: String,
     avatar: String,
     googleId: String,

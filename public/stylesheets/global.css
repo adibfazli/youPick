@@ -11,7 +11,7 @@ body{
     position: relative;
     border: solid rgba(0, 58, 120, 0.42) 2px;
     width: 650px;
-    height: 650px;
+    min-height: 690px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 20px;
@@ -31,11 +31,6 @@ body{
     font-size: 20px;
     position: absolute;
 }
-/* .avatar{
-    position: absolute;
-    left: 2.5%;
-    top: -1%;
-} */
 .pic{
     margin-top: .8%;
     width: 100%;
@@ -63,8 +58,13 @@ body{
     outline: none;
     color: white;
 }
+.likeAndCommentDiv{
+    border: solid rgba(0, 58, 120, 0.42) 1px;
+    height: 64px;
+    /* border-bottom-left-radius: 46px; */
+}
 .like{
-    bottom: 0;
+    top: 600;
     left: 0;
     position: absolute;
     border: solid rgba(0, 58, 120, 0.42) 2px;
@@ -72,18 +72,19 @@ body{
     border-top-left-radius: 0px;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    border-bottom-left-radius: 48px;
-    width: 25%;
-    height: 11.5%;
+    /* border-bottom-left-radius: 48px; */
+    width: 150px;
+    height: 60px;
     background: radial-gradient(ellipse at bottom, #2f6aad 0%,#090a0f 100%);
 
     /* box-shadow: 5px 5px 10px   rgb(199, 199, 199); */
 }
 .like p{
     position: absolute;
-    left: 65%;
-    top: -32%;
+    left: 60%;
+    top: -33px;
     font-size: 40px;
+    color: white;
 }
 .heart{
     border: solid rgba(0, 58, 120, 0.42) 1px;
@@ -91,9 +92,9 @@ body{
     border-top-left-radius: 0px;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    border-bottom-left-radius: 46px;
+    /* border-bottom-left-radius: 46px; */
     width: 50%;
-    height: 72.5px;
+    height: 58px;
     background-color: white;
     text-align: center;
     font-size: 15px;
@@ -101,7 +102,7 @@ body{
 .likeBtn{
     background-color: transparent;
     margin-left: -20px;
-    margin-top: 8px;
+    margin-top: 0px;
     width: 60px;
     height: 60px;
     background-image: url('../images/heart.png');
@@ -112,11 +113,16 @@ body{
     cursor: pointer;
     outline: none;
 }
+.caption{
+    margin-left: 29%;
+    margin-top: -10px;
+    width: 100px;
+}
 .commentDiv{
     border: solid rgba(0, 58, 120, 0.42)  1px;
     position: relative;
     margin-left: 29%;
-    margin-top: 1%;
+    /* margin-top: 5%; */
     /* bottom: 6%;
     right: 6%; */
     width:65% ;
@@ -145,17 +151,29 @@ body{
     outline: none;
 }
 #commentDrop{
-    margin-left: 29%;
-    margin-top: 1%;
+    margin-left: 2%;
+    /* margin-top: 1%; */
+    margin-bottom: 1%;
     outline: none;
-    right:6% ;
-    bottom: 2%;
     width:65% ;
     border:none;
-    font-size: 20px;
+    font-size: 25px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 20px;
+    
+}
+#commentDrop-SubDiv{
+    display: flex;
+    padding: 0;
+}
+#commentDrop-SubDiv p{
+    margin-top: 4px;
+}
+#commentDrop-SubDiv button{
     cursor: pointer;
-    /* background-color: rgb(240, 240, 240); */
-
+    background-color: indianred;
+    border-radius: 20px;
+    margin-left: 5px;
 }
 .profileBtn{
     position: absolute;

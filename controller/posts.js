@@ -6,8 +6,6 @@ module.exports = {
     index,
     show,
     create,
-    new: newPost,
-    edit,
     delete: deletePost,
     likePost,
     addComment,
@@ -79,15 +77,6 @@ function create(req, res) {
             })
         })
     });
-}
-
-
-function newPost(req, res) {
-
-}
-
-function edit(req, res) {
-
 }
 
 function deletePost(req, res) {
