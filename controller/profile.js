@@ -4,6 +4,7 @@ var Post = require('../models/post');
 module.exports = {
   index ,
   addBio,
+  deleteBio,
 }
 
 function addBio(req , res){
@@ -11,9 +12,18 @@ function addBio(req , res){
       console.log("bioooooooo >>>>>>>>>",user)
       user.bio = req.body.bio
       user.save(function(err , bio){
-        res.redirect('/global')
+        res.redirect('/profile')
       })
     })
+}
+
+function deleteBio(req , res){
+  User.findById(req.user.id, function(err , user){
+    user.bio=""
+    user.save(function(err, deleteBio){
+      res.redirect('/profile')
+    });
+  });
 }
 
 function index(req, res) {

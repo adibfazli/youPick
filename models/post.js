@@ -2,21 +2,6 @@ var mongoose = require('mongoose')
 
 var Schema = mongoose.Schema
 
-//---------------------------------------
-
-// var commentSchema = new Schema({
-//   comment: String
-// }, {
-//     timestamps: true
-// });
-
-// var likeSchema = new Schema({
-//   like: String
-// }, {
-//     timestamps: true
-// });
-//---------------------------------------
-
 var postSchema = new Schema({
   url: String,
   caption: String,

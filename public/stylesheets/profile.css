@@ -6,21 +6,40 @@ body{
     /* background-color: rgb(238, 238, 238); */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    height: 180px;
+    height: 90px;
     border-bottom: solid black 2px;
 }
 .profileAvatar{
     margin-left: 5%;
     margin-top: 30px;
-    width: 200px;
-    height: 200px;
-    border-bottom: solid black 2px;
+    width: 120px;
+    height: 120px;
+    box-shadow:
+    0 0 0 10px hsl(0, 0%, 80%),
+    0 0 0 15px hsl(0, 0%, 90%);
     border-radius: 50%;
-    background-size: 200px;
+    background-size: 120px;
 }
 .profileName{
-    margin-top: 130px;
-    margin-left: -280px;
+    margin-top: 50px;
+    margin-left: -70%;
+}
+.homeBtn{
+    font-size: 40px;
+    margin-top: 20px;
+    margin-left: 80%;
+}
+.bio{
+    margin-top: 100px;
+    margin-left: -170%;
+
+}
+.bio button{
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background: radial-gradient(circle at center,#cacaca 0%,white 100%);
 }
 .addImgBody{
     text-align: center;
