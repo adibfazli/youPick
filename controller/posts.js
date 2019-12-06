@@ -57,7 +57,7 @@ function likePost(req, res) {
 }
 
 function index(req, res) {
-    res.render('mkpost/add', { loggedInUser: req.user._id })
+    res.render('mkPost/add', { loggedInUser: req.user._id })
 }
 
 function show(req, res) {
