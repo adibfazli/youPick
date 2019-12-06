@@ -30,8 +30,8 @@ body{
     margin-left: 80%;
 }
 .bio{
-    margin-top: 100px;
-    margin-left: -170%;
+    margin-top: -50px;
+    margin-left: 30%;
 
 }
 .bio button{
@@ -77,4 +77,8 @@ body{
     height:150px ;
     max-width: 300px;
     max-height: 300px;
+}
+.home{
+    padding: 30px;
+    font-size: 40px;
 }

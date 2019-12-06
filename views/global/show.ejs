@@ -43,7 +43,13 @@
             <div class="like">
                     <p><%= e.likes.length %></p>
                 <form action="/likePost/<%=e._id%>?_method=PUT" method="POST">
-                    <div class="heart"><button type="submit" class="likeBtn"></button></div>
+                    <div class="heart">
+                            <% if(e.likes.includes(logedInUser._id)){ %> 
+                                <button type="submit" class="redHeart"></button>
+                                <% }else{ %>
+                                    <button type="submit" class="likeBtn"></button>
+                            <% } %>
+                    </div>
                 </form>
             </div>
             <p class="caption"><%= e.caption %></p>
@@ -61,7 +67,10 @@
             <div id="commentDrop">
                 <%e.comments.forEach(c => {%>
                 <div id="commentDrop-SubDiv">
-                        <form action="/deleteComment/<%= e._id%>/<%=c._id%>?_method=PUT" method="POST"><button type="submit">X</button></form>&nbsp;<p><%=c.user%>:</p>&nbsp;<p><%=c.comment%></p>
+                        <form action="/deleteComment/<%= e._id%>/<%=c._id%>?_method=PUT" method="POST">
+                            
+                            <button type="submit">X</button>
+                        </form>&nbsp;<p><%=c.user%>:</p>&nbsp;<p><%=c.comment%></p>
                     </div>
                     <%})%>
             </div>

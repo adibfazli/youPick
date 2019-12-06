@@ -14,12 +14,15 @@ module.exports = {
 
 function deleteComment (req, res) {
     Post.findById(req.params.p_id, function(err, post){
+        console.log(' delete <<<<<<<<<<<',post)
+        if(req.user.id == post.comments.id(req.params.c_id).usrId){
         post.comments.id(req.params.c_id).remove();
 
         post.save().then(function(){
             res.json({success: true});
         }).catch(err => {res.status.json({ err: err }); });
         res.redirect('/global');
+    }else res.redirect(`back`);
     })
 }
 
@@ -29,6 +32,7 @@ function addComment(req, res) {
 
         commentObj.comment = req.body.comment;
         commentObj.user = req.user.name;
+        commentObj.usrId = req.user.id;
 
         post.comments.push(commentObj);
         post.save();
@@ -45,10 +49,11 @@ function likePost(req, res) {
             });
         } else {
             var likes = post.likes;
-            likes = likes.filter( i => {
-                i != req.param.id;
-            });
+            const likeLocation = (element) => element = req.user.id;
+            var idx = post.likes.findIndex(likeLocation)
+            likes = likes.splice(idx , 1)
             post.likes = likes;
+            console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>',post.likes)
             post.save(function(err, post) {
                 res.redirect('/global');
             })

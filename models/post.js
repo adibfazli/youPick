@@ -9,6 +9,7 @@ var postSchema = new Schema({
   comments: [{
     user: String,
     comment: String,
+    usrId: String,
   }],
   user: {
     type: Schema.Types.ObjectId,
